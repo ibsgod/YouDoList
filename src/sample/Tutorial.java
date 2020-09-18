@@ -111,6 +111,7 @@ public class Tutorial extends Scene
             if (index == images.length - 1)
             {
                 primaryStage.setScene(new Menu(new BorderPane(), 500, 500, primaryStage));
+                primaryStage.centerOnScreen();
                 return;
             }
             index ++;

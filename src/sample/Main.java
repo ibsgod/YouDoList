@@ -79,8 +79,9 @@ public class Main extends Application
         long time = System.currentTimeMillis();
         primaryStage.setOnCloseRequest(e ->
         {
-            System.exit(0);
             updateJson();
+            primaryStage.setIconified(true);
+            e.consume();
         });
         primaryStage.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override

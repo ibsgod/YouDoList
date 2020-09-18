@@ -278,10 +278,12 @@ public class ListViewer extends Scene {
         addList.setOnMouseClicked(e ->
         {
             primaryStage.setScene(new ListCreator(new BorderPane(), 900, 650, primaryStage,null));
+            primaryStage.centerOnScreen();
         });
         buttons.get("return").setOnMouseClicked(e ->
         {
             primaryStage.setScene(new Menu(new BorderPane(), 500, 500, primaryStage));
+            primaryStage.centerOnScreen();
         });
     }
 
