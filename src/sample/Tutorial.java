@@ -53,7 +53,7 @@ public class Tutorial extends Scene
             "First, press the Windows Key + R to open the \"Run\" dialog box, then type \"shell:startup\" before hitting OK.",
             "A file explorer window will open. Now, open a new file explorer and locate the .exe that this program is running from (probably in your downloads).",
             "Now holding right click, drag the .exe into the startup folder. Then select \"Create shortcut here\". And voila! YouDoList will now open when you start your computer."};
-    String[] images = {"welcome.gif", "2.gif", "3.gif", "4.gif", "cool.gif", "startup1.png", "welcome.gif", "welcome.gif"};
+    String[] images = {"welcome.gif", "2.gif", "3.gif", "4.gif", "cool.gif", "startup1.png", "5.png", "6.gif"};
     ImageView i;
 
     public Tutorial(Parent parent, double width, double height, Stage primaryStage)
