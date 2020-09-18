@@ -48,7 +48,7 @@ public class Tutorial extends Scene
     String[] botText = {"This is an app that helps you keep lists of things you need to do. Let's go through some basic information about this program.",
             "Simple! You create lists, fill them up with activities, and check them off as you complete them!",
             "You can schedule lists for chosen dates, and activities at chosen times. When that time rolls around, you will receive notifications reminding you to complete those tasks!",
-            "Your lists will be stored in a file on your computer (probably in your documents), so you can go back and edit them whenever you want to.",
+            "Your lists will be stored in a file on your computer (probably in your documents), so you can go back and edit them by clicking \"Edit List\" whenever you want to.",
             "It is highly recommended that you set this program to start on Windows startup, so that it'll be up and running as soon as you turn on your computer. The following steps will show you how to do this.",
             "First, press the Windows Key + R to open the \"Run\" dialog box, then type \"shell:startup\" before hitting OK.",
             "A file explorer window will open. Now, open a new file explorer and locate the .exe that this program is running from (probably in your downloads).",
