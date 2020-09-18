@@ -47,17 +47,15 @@ public class Main extends Application
         colors[2][2] = Color.web("d62020");
         colors[2][3] = Color.web("f5a9b6");
         file = new File(home);
-        /*if (file.createNewFile())
+        if (file.createNewFile())
         {
             primaryStage.setScene(new Tutorial(new BorderPane(), 650, 650, primaryStage));
         }
         else
         {
-            System.out.println("loaded");
             readJson();
             primaryStage.setScene(new Menu(new BorderPane(), 500, 500, primaryStage));
-        }*/
-        primaryStage.setScene(new Tutorial(new BorderPane(), 650, 650, primaryStage));
+        }
         this.primaryStage = primaryStage;
         primaryStage.setResizable(false);
         primaryStage.setTitle("oonga boonga");
@@ -154,7 +152,6 @@ public class Main extends Application
     }
     public static void updateJson ()
     {
-        System.out.println("update");
         FileWriter fileWriter;
         BufferedWriter bw = null;
         OutputStream os;

@@ -449,7 +449,6 @@ public class ListViewer extends Scene {
     public void showLists()
     {
         fp.getChildren().clear();
-        System.out.println(fp.getChildren().size());
         Collections.sort(Main.allLists);
         Main.updateJson();
         for (int i = 0; i < Main.allLists.size(); i++)
