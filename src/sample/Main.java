@@ -255,7 +255,9 @@ public class Main extends Application
                     list.active = listInfo.getBoolean("active");
                     allLists.add(list);
                 }
-                catch(Exception e){}
+                catch(Exception e){
+                    e.printStackTrace();
+                }
             }
             br.close();
         }

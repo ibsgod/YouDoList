@@ -4,7 +4,7 @@ public class ListItem
 {
     String itemName;
     boolean done = false;
-    String description;
+    String description = "";
     boolean due = false;
     boolean timeSet = false;
     int hour;
