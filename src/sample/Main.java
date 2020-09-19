@@ -116,7 +116,7 @@ public class Main extends Application
                                     }
                                     int currTime = currItem.hour * 60 + currItem.minute;
                                     int localTime = LocalDateTime.now().getHour() * 60 + LocalDateTime.now().getMinute();
-                                    if ((localTime - currTime) % remindTime == 0) {
+                                    if ((localTime - currTime) % remindTime == 0 && localTime > currTime) {
                                         TrayIconDemo td = new TrayIconDemo();
                                         td.displayTray(currItem.itemName, currItem.description);
                                     }
