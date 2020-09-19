@@ -78,6 +78,8 @@ public class Main extends Application
         primaryStage.setOnCloseRequest(e ->
         {
             updateJson();
+            primaryStage.setScene(new Menu(new BorderPane(), 500, 500, primaryStage));
+            primaryStage.centerOnScreen();
             primaryStage.setIconified(true);
             e.consume();
         });
