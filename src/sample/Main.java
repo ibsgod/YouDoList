@@ -219,6 +219,7 @@ public class Main extends Application
             fileReader = new FileReader(file);
             br = new BufferedReader(fileReader);
             String s = br.readLine();
+            System.out.println(s);
             if (s == null)
             {
                 return;
@@ -235,7 +236,7 @@ public class Main extends Application
                     JSONArray itemArray = listInfo.getJSONArray("items");
                     ArrayList<ListItem> listItems = new ArrayList<ListItem>();
                     for (int j = 0; j < itemArray.length(); j++) {
-                        JSONObject item = itemArray.getJSONObject(i);
+                        JSONObject item = itemArray.getJSONObject(j);
                         ListItem l = new ListItem(item.getString("name"), item.getBoolean("done"));
                         l.description = item.getString("description");
                         l.timeSet = item.getBoolean("timeSet");
