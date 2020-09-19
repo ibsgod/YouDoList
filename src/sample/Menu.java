@@ -127,10 +127,18 @@ public class Menu extends Scene
         bp.setTop(topBarStuff);
         Label bottomLbl = new Label("By Sankeeth Ganeswaran.");
         bottomLbl.setTextFill(Color.web("000000", 0.5));
-        HBox bbox = new HBox(bottomLbl);
+        makeButton("quit", 100, 50, Main.colors[Main.theme][3], "Quit");
+        buttons.get("quit").setTranslateY(-30);
+        buttons.get("quit").setTranslateX(-250);
+        buttons.get("quit").setOnMouseClicked(e ->
+        {
+            Main.updateJson();
+            System.exit(0);
+        });
+        HBox bbox = new HBox(buttons.get("quit"), bottomLbl);
         bbox.setAlignment(Pos.TOP_RIGHT);
         bottomLbl.setTranslateX(-10);
-        bottomLbl.setTranslateY(-10);
+        bottomLbl.setTranslateY(10);
         bp.setBottom(bbox);
         getStylesheets().add(getClass().getResource("Squidward.css").toExternalForm());
         TranslateTransition tt = new TranslateTransition(Duration.millis(2000), mainLbl);
@@ -188,7 +196,39 @@ public class Menu extends Scene
         fd.setOpacity(0.0);
         buttonHover(button, fd, hb, label);
     }
-
+    public void makeButton(String name, int width, int height, Color color, String string)
+    {
+        StackPane hitbutton = new StackPane();
+        StackPane button = new StackPane();
+        Label label = new Label(string);
+        label.setVisible(true);
+        label.setFont(new Font("Microsoft Yahei UI Light", height / 2.5));
+        label.setTextFill(Color.BLACK);
+        Rectangle r = new Rectangle(width, height);
+        r.setArcHeight(10);
+        r.setArcWidth(10);
+        r.setVisible(true);
+        r.setFill(color);
+        Rectangle fd = new Rectangle(width, height);
+        fd.setArcHeight(10);
+        fd.setArcWidth(10);
+        fd.setVisible(true);
+        Stop[] stops = new Stop[]{new Stop(0, Main.colors[Main.theme][1]), new Stop(1, Main.colors[Main.theme][2])};
+        LinearGradient lg1 = new LinearGradient(0, 0, 0, 1, true, CycleMethod.NO_CYCLE, stops);
+        fd.setFill(lg1);
+        Rectangle hb = new Rectangle(width, height + (height / 5));
+        hb.setFill(Color.web("FFFFFF", 0.0));
+        hb.setArcHeight(10);
+        hb.setArcWidth(10);
+        hb.setVisible(true);
+        hb.setTranslateY(height / -10);
+        button.getChildren().addAll(r, label, fd);
+        hitbutton.getChildren().addAll(button, hb);
+        buttons.put(name, hitbutton);
+        btnTimers.put(button, new Timer());
+        fd.setOpacity(0.0);
+        buttonHover(button, fd, hb, null);
+    }
     public void buttonHover(StackPane button, Rectangle fd, Rectangle hb, Label l)
     {
         hb.setOnMouseEntered(new EventHandler<MouseEvent>()
@@ -211,7 +251,7 @@ public class Menu extends Scene
                                 {
                                     fd.setOpacity(Math.min(0.5, fd.getOpacity() + 0.01));
                                 }
-                                if (l.getOpacity() < 1)
+                                if (l != null && l.getOpacity() < 1)
                                 {
                                     l.setOpacity(Math.min(1, l.getOpacity() + 0.01));
                                 }
@@ -251,7 +291,7 @@ public class Menu extends Scene
                                 {
                                     fd.setOpacity(Math.max(0, fd.getOpacity() - 0.007));
                                 }
-                                if (l.getOpacity() > 0)
+                                if (l != null && l.getOpacity() > 0)
                                 {
                                     l.setOpacity(Math.max(0, l.getOpacity() - 0.01));
                                 }

@@ -58,7 +58,7 @@ public class Main extends Application
         }
         this.primaryStage = primaryStage;
         primaryStage.setResizable(false);
-        primaryStage.setTitle("oonga boonga");
+        primaryStage.setTitle("YouDoList");
         primaryStage.show();
         Media media = new Media(getClass().getResource("jazz.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(media);
