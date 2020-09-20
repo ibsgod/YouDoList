@@ -66,17 +66,17 @@ public class Menu extends Scene
         makeButton("newList", 110, 110, Main.colors[Main.theme][3], new Image(getClass().getResource("plus.png").toString()), "New List");
         makeButton("myLists", 110, 110, Main.colors[Main.theme][3], new Image(getClass().getResource("lists.png").toString()), "My Lists");
         makeButton("settings", 110, 110, Main.colors[Main.theme][3], new Image(getClass().getResource("settings.png").toString()), "Settings");
-        buttons.get("newList").setOnMouseClicked(e ->
+        buttons.get("newList").getChildren().get(2).setOnMouseClicked(e ->
         {
             primaryStage.setScene(new ListCreator(new BorderPane(), 900, 650, primaryStage, null));
             primaryStage.centerOnScreen();
         });
-        buttons.get("myLists").setOnMouseClicked(e ->
+        buttons.get("myLists").getChildren().get(2).setOnMouseClicked(e ->
         {
             primaryStage.setScene(new ListViewer(new BorderPane(), 900, 650, primaryStage, null));
             primaryStage.centerOnScreen();
         });
-        buttons.get("settings").setOnMouseClicked(e ->
+        buttons.get("settings").getChildren().get(2).setOnMouseClicked(e ->
         {
             primaryStage.setScene(new Settings(new BorderPane(), 500, 500, primaryStage));
             primaryStage.centerOnScreen();
@@ -141,6 +141,11 @@ public class Menu extends Scene
         bottomLbl.setTranslateY(10);
         bp.setBottom(bbox);
         getStylesheets().add(getClass().getResource("Squidward.css").toExternalForm());
+        if (!Main.started)
+        {
+            mainLbl.setTranslateX(15);
+            return;
+        }
         TranslateTransition tt = new TranslateTransition(Duration.millis(2000), mainLbl);
         tt.setByX(-200);
         tt.setCycleCount(1);

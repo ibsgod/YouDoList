@@ -31,6 +31,7 @@ public class Main extends Application
     static int remindTime = 1;
     static MediaPlayer mediaPlayer;
     static MediaPlayer soundPlayer;
+    static boolean started = true;
     @Override
     public void start(Stage primaryStage) throws Exception
     {
@@ -56,6 +57,7 @@ public class Main extends Application
             readJson();
             primaryStage.setScene(new Menu(new BorderPane(), 500, 500, primaryStage));
         }
+        started = false;
         this.primaryStage = primaryStage;
         primaryStage.setResizable(false);
         primaryStage.setTitle("YouDoList");
