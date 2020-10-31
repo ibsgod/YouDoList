@@ -658,6 +658,10 @@ public class ListCreator extends Scene
                 {
                     listItems.get(editing).hour += 12;
                 }
+                if (((ComboBox)timeeBox.getChildren().get(2)).getValue().toString().equals("AM") && listItems.get(editing).hour == 12)
+                {
+                    listItems.get(editing).hour = 0;
+                }
             }
             editing = null;
             try
@@ -812,10 +816,6 @@ public class ListCreator extends Scene
                     ((ComboBox) ((HBox) timeBox.getChildren().get(2)).getChildren().get(0)).setValue(listItems.get(button.getParent()).hour % 12 + ":");
                     if (listItems.get(button.getParent()).hour % 12 == 0) {
                         ((ComboBox) ((HBox) timeBox.getChildren().get(2)).getChildren().get(0)).setValue(12 + ":");
-                        if (listItems.get(button.getParent()).hour > 0)
-                        {
-                            listItems.get(button.getParent()).hour -= 12;
-                        }
                     }
                     ((ComboBox) ((HBox) timeBox.getChildren().get(2)).getChildren().get(1)).setValue(listItems.get(button.getParent()).minute);
                     if (listItems.get(button.getParent()).minute < 10) {
@@ -825,6 +825,7 @@ public class ListCreator extends Scene
                     {
                         ((ComboBox) ((HBox) timeBox.getChildren().get(2)).getChildren().get(1)).setValue("" + listItems.get(button.getParent()).minute);
                     }
+                    System.out.println(listItems.get(button.getParent()).hour);
                     if (listItems.get(button.getParent()).hour >= 12) {
                         ((ComboBox) ((HBox) timeBox.getChildren().get(2)).getChildren().get(2)).setValue("PM");
                     } else {
